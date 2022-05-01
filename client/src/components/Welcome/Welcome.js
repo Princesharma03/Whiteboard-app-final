@@ -1,6 +1,8 @@
 import { Fragment } from 'react';
 import './style.css';
+import {useNavigate} from 'react-router-dom';
 import { useState } from 'react';
+
 
 const Welcome=()=>{
     const [input,setInput]=useState("");
@@ -8,6 +10,7 @@ const Welcome=()=>{
     const changeInput=(event)=>{
         setInput(event.target.value);
     }
+    const navigate=useNavigate();
 
 
 
@@ -27,7 +30,8 @@ const Welcome=()=>{
                 </div >
 
             <input className='submitCss' onClick={()=>{
-                window.location.href = `https://whiteboard-for-inno.herokuapp.com/whiteboard/${input}`;
+                // window.location.href = `https://whiteboard-for-inno.herokuapp.com/whiteboard/${input}`;
+                navigate(`/whiteboard/${input}`);
 
             }}  value="Create OR Join" />
                 
