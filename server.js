@@ -1,5 +1,6 @@
-var app = require('express')();
-var http = require('http').createServer(app);
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
 // var io = require('socket.io')(http);
 const io = require('socket.io')(http, {
       cors: {
@@ -28,10 +29,10 @@ io.on('connection', (socket)=> {
       })
 })
 
-var server_port =  process.env.PORT || 5000;
-// if (process.env.NODE_ENV == "production") {
-//       app.use(express.static("client/build"));
-//     }
+const server_port =  process.env.PORT || 5000;
+if (process.env.NODE_ENV == "production") {
+      app.use(express.static("client/build"));
+    }
 http.listen(server_port, () => {
     console.log("Started on : "+ server_port);
 })
