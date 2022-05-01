@@ -29,9 +29,9 @@ io.on('connection', (socket)=> {
 })
 
 var server_port =  process.env.PORT || 5000;
-if (process.env.NODE_ENV == "production") {
-      app.use(express.static("client/build"));
-    }
+// if (process.env.NODE_ENV == "production") {
+//       app.use(express.static("client/build"));
+//     }
 http.listen(server_port, () => {
     console.log("Started on : "+ server_port);
 })
